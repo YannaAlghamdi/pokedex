@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { ConfigService } from "../config.service";
-import { PokeApi } from '../pokemon/pokemon-api';
+import { PokeApi } from "./pokemon-api";
 
 export class ApiClient {
   private readonly api: HttpClient;

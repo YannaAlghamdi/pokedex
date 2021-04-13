@@ -2,10 +2,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppInitializerService } from './app-initializer.service';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConfigService } from './config.service';
@@ -17,6 +16,7 @@ import { ConfigService } from './config.service';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
+    NgxDatatableModule,
     AppRoutingModule
   ],
   providers: [

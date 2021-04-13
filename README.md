@@ -1,5 +1,7 @@
 # Pokedex
 
+A Pokemon directory inspired by Pokemon's Pokedex. Search a Pokemon by name to explore its stats, type, and more! Layout is inspired by UpLabs (https://www.uplabs.com/posts/pokedex-app).
+
 ## Technologies Used
 
 - Angular 11
