@@ -1,0 +1,44 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-title>
+            Pok&eacute;dex!
+          </ion-title>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar class="searchbar" (keyup)="updateFilter($event)" showCancelButton="never"
+          placeholder="Search for a Pokemon"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ngx-datatable #table class="material datatable" [rows]="rows"
+            [columns]="[{ name: 'Index' },{ name: 'Avatar' }, { name: 'Name' }]" [columnMode]="ColumnMode.force"
+            [headerHeight]="0" [footerHeight]="50" rowHeight="auto" [rowClass]="getRowClass" [externalPaging]="true"
+            [count]="page?.totalElements" [offset]="page?.pageNumber" [limit]="page?.size" (page)="setPage($event)">
+            <ngx-datatable-column name="Index" [cellClass]="'name'">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                #{{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Avatar">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <img [src]="value" class="avatar">
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Name" [cellClass]="'name'">
+              <ion-label class="name">{{value}}</ion-label>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

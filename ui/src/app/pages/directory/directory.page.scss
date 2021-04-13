@@ -1,0 +1,41 @@
+ion-grid {
+    background-image: url(/assets/images/subtract.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+ion-item {
+    --background: transparent;
+}
+
+
+.avatar {
+    width: auto;
+    height: 15vh;
+}
+
+.name {
+    text-transform: capitalize;
+    align-self: center;
+}
+
+ion-title {
+    font-family: 'PressStart Regular';
+    text-align: center;
+    font-size: 4vw;
+}
+
+.row {
+    border-bottom: 1px solid black;
+}
+
+.datatable, ion-card {
+    background: transparent !important;
+}
+
+.searchbar {
+    --border-radius: 1rem;
+    --background: #F5F5F5;
+    --box-shadow: 0 0 black;
+}
