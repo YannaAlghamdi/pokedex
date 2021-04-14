@@ -4,7 +4,7 @@
       <ion-col>
         <ion-item lines="none">
           <ion-title>
-            Pok&eacute;dex!
+            Pok&eacute;dex
           </ion-title>
         </ion-item>
 
@@ -13,32 +13,33 @@
     <ion-row>
       <ion-col>
         <ion-searchbar class="searchbar" (keyup)="updateFilter($event)" showCancelButton="never"
-          placeholder="Search for a Pokemon"></ion-searchbar>
+          placeholder="Search for a Pok&eacute;mon by name or order"></ion-searchbar>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
+      <ion-col [sizeLg]=3 [sizeMd]=6 [sizeSm]=6 [sizeXs]=6 *ngFor="let row of rows">
         <ion-card>
-          <ngx-datatable #table class="material datatable" [rows]="rows"
-            [columns]="[{ name: 'Index' },{ name: 'Avatar' }, { name: 'Name' }]" [columnMode]="ColumnMode.force"
-            [headerHeight]="0" [footerHeight]="50" rowHeight="auto" [rowClass]="getRowClass" [externalPaging]="true"
-            [count]="page?.totalElements" [offset]="page?.pageNumber" [limit]="page?.size" (page)="setPage($event)">
-            <ngx-datatable-column name="Index" [cellClass]="'name'">
-              <ng-template let-value="value" ngx-datatable-cell-template>
-                #{{value}}
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="Avatar">
-              <ng-template let-value="value" ngx-datatable-cell-template>
-                <img [src]="value" class="avatar">
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="Name" [cellClass]="'name'">
-              <ion-label class="name">{{value}}</ion-label>
-            </ngx-datatable-column>
-          </ngx-datatable>
+          <ion-item>
+            <ion-label class="name">{{row.name}}</ion-label>
+            <ion-badge>{{'# ' + (row.index | number:'3.0')}}</ion-badge>
+          </ion-item>
+
+          <ion-card-content>
+            <ion-img [src]="row.avatar"></ion-img>
+          </ion-card-content>
         </ion-card>
       </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <ion-button (click)="back()" mode="ios" [disabled]="!previousUrl" fill="clear">
+          <ion-icon class="chevron" name="chevron-back-circle"></ion-icon>
+        </ion-button>
+        <ion-button (click)="next()" mode="ios" [disabled]="!nextUrl" fill="clear">
+          <ion-icon class="chevron" name="chevron-forward-circle"></ion-icon>
+        </ion-button>
+      </ion-col>
+
     </ion-row>
   </ion-grid>
 </ion-content>

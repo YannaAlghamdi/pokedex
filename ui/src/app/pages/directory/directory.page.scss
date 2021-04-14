@@ -18,20 +18,38 @@ ion-item {
 .name {
     text-transform: capitalize;
     align-self: center;
+    color: #fff !important;
+    font-size: 1.5rem !important;
+    font-weight: bold;
 }
 
 ion-title {
     font-family: 'PressStart Regular';
     text-align: center;
-    font-size: 4vw;
+    font-size: 5vh;
 }
 
 .row {
     border-bottom: 1px solid black;
 }
 
-.datatable, ion-card {
-    background: transparent !important;
+.chevron {
+    color: #FB6C6C;
+    font-size: 5vh;
+}
+ 
+ion-badge {
+    background: #FFFFFF;
+    background-blend-mode: soft-light;
+    opacity: 0.4;
+    color: #000;
+    font-size: 1rem;
+}
+
+ion-card {
+    font-size: 2rem;
+    background: #46D0A7 !important;
+    border-radius: 1rem;
 }
 
 .searchbar {

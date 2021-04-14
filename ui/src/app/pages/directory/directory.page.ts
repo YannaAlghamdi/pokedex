@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { DefaultUrlSerializer } from '@angular/router';
 import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
 import { ConfigService } from 'src/app/config.service';
-import { Page } from 'src/app/models/page';
+import { ListOpts } from 'src/app/models/list-opts';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -13,31 +13,30 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class DirectoryPage implements OnInit {
 
-  page = new Page();
+  listOptions: ListOpts;
   rows = new Array<any>();
-  offset: number;
-
-  ColumnMode = ColumnMode;
-  @ViewChild(DatatableComponent) table: DatatableComponent;
-
+  nextUrl: string;
+  previousUrl: string;
   constructor(private pokemonService: PokemonService, private configService: ConfigService) {
-    this.page.pageNumber = 0;
-    this.page.size = 20;
+
   }
 
   ngOnInit() {
-    this.setPage({ offset: 0 });
+    this.listOptions = new ListOpts()
+      .withLimit(20)
+      .withOffset(0);
+    this.getList(this.listOptions);
   }
 
-  setPage(pageInfo) {
-    this.page.pageNumber = pageInfo.offset;
-    this.pokemonService.list(pageInfo.offset).then(data => {
-      this.page.totalElements = data.count;
-      this.rows = this.setThumbnails(data.results, pageInfo.offset);
+  getList(options: ListOpts) {
+    this.pokemonService.list(options).then(data => {
+      this.previousUrl = data.previous;
+      this.nextUrl = data.next;
+      this.rows = this.setAvatar(data.results, options.getOffset());
     });
   }
 
-  setThumbnails(data: Array<any>, offset: number) {
+  setAvatar(data: Array<any>, offset: number) {
     return data.map((poke, index) => {
       poke.avatar = this.getPokeImage(offset + index + 1);
       poke.index = offset + index + 1;
@@ -47,16 +46,18 @@ export class DirectoryPage implements OnInit {
 
   updateFilter(event) {
     const val = event.target.value.toLowerCase();
-    if (val) {
-      const temp = this.rows.filter(function (d) {
-        return d.name.toLowerCase().indexOf(val) !== -1 || !val;
-      });
 
-      this.rows = temp;
-      this.table.offset = 0;
+    if (val) {
+      this.pokemonService.get(val).then(data => {
+        console.log(data)
+        this.rows = this.setAvatar([data], data.id - 1);
+      })
     }
     else {
-      this.setPage({ offset: 0 });
+      this.listOptions = new ListOpts()
+        .withLimit(20)
+        .withOffset(0);
+      this.getList(this.listOptions);
     }
   }
 
@@ -64,9 +65,22 @@ export class DirectoryPage implements OnInit {
     return `${this.configService.get('imageUrl')}${index}.png`;
   }
 
-  getRowClass() {
-    return {
-      'row': true
-    }
+  next() {
+    this.listOptions.withOffset(this.listOptions.getOffset() + 20);
+    this.pokemonService.listFromUrl(this.nextUrl).then(data => {
+      this.previousUrl = data.previous;
+      this.nextUrl = data.next;
+      this.rows = this.setAvatar(data.results, this.listOptions.getOffset());
+    });
   }
+
+  back() {
+    this.listOptions.withOffset(this.listOptions.getOffset() - 20);
+    this.pokemonService.listFromUrl(this.previousUrl).then(data => {
+      this.previousUrl = data.previous;
+      this.nextUrl = data.next;
+      this.rows = this.setAvatar(data.results, this.listOptions.getOffset());
+    });
+  }
+
 }
