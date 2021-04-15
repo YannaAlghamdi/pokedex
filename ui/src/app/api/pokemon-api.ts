@@ -28,7 +28,7 @@ export class PokeApi extends BaseApi {
     });
   }
 
-  listFromUrl(url: string): Promise<any> {
+  getFromUrl(url: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.api.get(url).subscribe(
         (res: any) => resolve(res),
