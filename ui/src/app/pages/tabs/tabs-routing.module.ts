@@ -4,23 +4,35 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'pokedex',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'directory',
         loadChildren: () => import('../directory/directory.module').then(m => m.DirectoryPageModule)
       },
       {
+        path: 'inventory',
+        loadChildren: () => import('../inventory/inventory.module').then(m => m.InventoryPageModule)
+      },
+      {
+        path: 'wishlist',
+        loadChildren: () => import('../wishlist/wishlist.module').then(m => m.WishlistPageModule)
+      },
+      {
+        path: 'details/:name',
+        loadChildren: () => import('../pokemon-detail/pokemon-detail.module').then(m => m.PokemonDetailPageModule)
+      },
+      {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/pokedex/directory',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/pokedex/directory',
     pathMatch: 'full'
   }
 ];

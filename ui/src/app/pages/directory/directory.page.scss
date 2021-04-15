@@ -48,8 +48,40 @@ ion-badge {
 
 ion-card {
     font-size: 2rem;
-    background: #46D0A7 !important;
+    background: #D1938C;
     border-radius: 1rem;
+
+    ion-card-content {
+        padding: 0 !important;
+    }
+}
+
+.grass {
+    background: #46D0A7;
+}
+
+.water {
+    background: #77BDFE;
+}
+
+.electricity {
+    background: #FFCE4B;
+}
+
+.fire {
+    background: #FB6C6C;
+}
+
+.bug {
+    background: #A06EB4;
+}
+
+.poison {
+    background: #FFAC4B;
+}
+
+.normal {
+    background: #D1938C;
 }
 
 .searchbar {

@@ -13,8 +13,8 @@ export class PokemonService {
     return Pokemon.list(options);
   }
 
-  listFromUrl(url: string) {
-    return Pokemon.listFromUrl(url);
+  getFromUrl(url: string) {
+    return Pokemon.getFromUrl(url);
   }
 
   get(name: string) {

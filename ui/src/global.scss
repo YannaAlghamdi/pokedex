@@ -37,3 +37,38 @@
     font-weight: bold;
     src: url('assets/fonts/PressStart2P-Regular.ttf');
 }
+
+
+.grass {
+    background: #46D0A7;
+    --background: #46D0A7;
+}
+
+.water {
+    background: #77BDFE;
+}
+
+.electricity {
+    background: #FFCE4B;
+}
+
+.fire {
+    background: #FB6C6C;
+}
+
+.bug {
+    background: #A06EB4;
+}
+
+.poison {
+    background: #FFAC4B;
+}
+
+.normal {
+    background: #D1938C;
+    --background: #D1938C;
+}
+
+.toast {
+    --background: #46D0A7;
+}
