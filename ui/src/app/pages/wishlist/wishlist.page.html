@@ -1,13 +1,17 @@
 <ion-content>
   <ion-grid>
     <ion-row>
+      <ion-col class="back">
+        <ion-icon (click)="back()" class="ion-padding" name="arrow-back-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col>
         <ion-item lines="none">
           <ion-title>
-            Pok&eacute;dex
+            Wishlist
           </ion-title>
         </ion-item>
-
       </ion-col>
     </ion-row>
     <ion-row>
@@ -26,21 +30,10 @@
             <ion-label class="name">{{row.name}}</ion-label>
           </ion-item>
           <ion-card-content>
-            <ion-img [src]="row.avatar"></ion-img>
+            <ion-img [src]="row.url"></ion-img>
           </ion-card-content>
         </ion-card>
       </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col class="ion-text-center">
-        <ion-button (click)="back()" mode="ios" [disabled]="!previousUrl" fill="clear">
-          <ion-icon class="chevron" name="chevron-back-circle"></ion-icon>
-        </ion-button>
-        <ion-button (click)="next()" mode="ios" [disabled]="!nextUrl" fill="clear">
-          <ion-icon class="chevron" name="chevron-forward-circle"></ion-icon>
-        </ion-button>
-      </ion-col>
-
     </ion-row>
   </ion-grid>
 </ion-content>

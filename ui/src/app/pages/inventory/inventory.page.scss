@@ -89,3 +89,13 @@ ion-card {
     --background: #F5F5F5;
     --box-shadow: 0 0 black;
 }
+
+
+.back {
+    cursor: pointer;
+
+    ion-icon {
+        font-size: 2rem;
+        color: #000;
+    }
+}

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ListOpts } from '../models/list-opts';
 import { Pokemon } from '../models/pokemon';
 
 @Injectable({
@@ -8,7 +9,15 @@ export class PokemonService {
 
   constructor() { }
 
-  list(offset: number) {
-    return Pokemon.list(offset);
+  list(options: ListOpts) {
+    return Pokemon.list(options);
+  }
+
+  getFromUrl(url: string) {
+    return Pokemon.getFromUrl(url);
+  }
+
+  get(name: string) {
+    return Pokemon.get(name);
   }
 }

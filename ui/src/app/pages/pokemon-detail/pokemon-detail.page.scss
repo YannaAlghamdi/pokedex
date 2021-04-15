@@ -1,0 +1,92 @@
+.name {
+    text-transform: capitalize;
+}
+
+.type-badge {
+    margin-right: 1rem;
+    text-transform: capitalize;
+    padding: 1vh;
+}
+
+.ability-badge {
+    margin-right: 1rem;
+    text-transform: capitalize;
+    padding: 1vh;
+    border-radius: 1rem;
+}
+
+ion-card {
+    padding: 2vh;
+}
+
+ion-card-title {
+    font-weight: bold;
+    font-size: 1.35rem;
+}
+
+ion-grid {
+    background-image: url(/assets/images/subtract.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+.measurement {
+    -webkit-box-shadow: 4px 10px 44px -11px rgba(0,0,0,0.47);
+    -moz-box-shadow: 4px 10px 44px -11px rgba(0,0,0,0.47);
+    box-shadow: 4px 10px 44px -11px rgba(0,0,0,0.47);
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    > ion-col {
+    display: flex;
+    flex-direction: column;
+    color: #303943;
+        :nth-child(1) {
+            opacity: 0.4;
+            font-weight: bold;
+        }
+    }
+}
+
+.section-title {
+    ion-label {
+        color: #303943;
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-top: 1rem;
+    }
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.back {
+    cursor: pointer;
+
+    ion-icon {
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+
+.options {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: end;
+
+    ion-icon {
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+
+ion-slides {
+    --bullet-background-active: #fff;
+}
+
+.add {
+    --background: #303943;
+}

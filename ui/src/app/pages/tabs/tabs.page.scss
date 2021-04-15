@@ -1,1 +1,12 @@
+ion-tab-bar, ion-tab-button {
+    background: #303943;
+    color: #fff;
+}
 
+.rotate {
+    transform: rotate(90deg);
+}
+
+ion-tab-button {
+    --color-selected: #F6C747;
+}

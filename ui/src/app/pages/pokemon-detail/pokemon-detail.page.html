@@ -1,0 +1,79 @@
+<ion-content>
+  <ion-grid [ngClass]="pokeDetails?.types[0].type.name">
+    <ion-row>
+      <ion-col class="back">
+        <ion-icon (click)="back()" class="ion-padding" name="arrow-back-outline"></ion-icon>
+      </ion-col>
+      <ion-col class="options">
+        <ion-icon
+          (click)="addToWishlist(pokeDetails?.name, pokeDetails?.order, pokeDetails?.sprites['front_default'], pokeDetails?.types[0].type.name)"
+          class="ion-padding" name="heart-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let sprite of pokeDetails?.images">
+        <img [src]="sprite" style="height: 250px;">
+      </ion-slide>
+    </ion-slides>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button
+          (click)="addToInventory(pokeDetails?.name, pokeDetails?.order, pokeDetails?.sprites['front_default'], pokeDetails?.types[0].type.name)"
+          class="add">
+          <ion-icon class="ion-padding" src="assets/icon/subtract.svg">
+          </ion-icon>
+          <ion-label>Add to Inventory</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="name">{{pokeDetails?.name}}</ion-card-title>
+        <ion-card-subtitle>
+          <ion-badge class="type-badge" [ngClass]="type.type.name" *ngFor="let type of pokeDetails?.types">
+            {{type?.type?.name}} </ion-badge>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row class="measurement">
+          <ion-col>
+            <ion-label>Weight</ion-label>
+            <ion-label>{{pokeDetails?.weight/10}} kg</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Height</ion-label>
+            <ion-label>{{pokeDetails?.height*10}} cm</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="section-title">
+          <ion-label>Base Stats</ion-label>
+        </ion-row>
+
+        <ion-row class="name" *ngFor="let stat of pokeDetails?.stats">
+          <ion-col [ngClass]="stat.stat.name == 'hp' ? 'uppercase' : ''">
+            <ion-label>{{stat.stat.name}}</ion-label>
+          </ion-col>
+          <ion-col>
+
+            <ion-progress-bar [value]="stat.base_stat/100" [color]="stat.base_stat < 50 ? 'danger' : 'success'">
+            </ion-progress-bar>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="section-title">
+          <ion-label>Abilities</ion-label>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-badge color="success" *ngFor="let ability of pokeDetails?.abilities" class="ability-badge">
+              {{ability.ability.name}} </ion-badge>
+          </ion-col>
+
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>
