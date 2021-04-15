@@ -1,0 +1,39 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="back">
+        <ion-icon (click)="back()" class="ion-padding" name="arrow-back-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-title>
+            Wishlist
+          </ion-title>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar class="searchbar" (ionChange)="updateFilter($event)" showCancelButton="never"
+          placeholder="Search for a Pok&eacute;mon by name or order"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col [sizeLg]=3 [sizeMd]=6 [sizeSm]=6 [sizeXs]=6 *ngFor="let row of rows">
+        <ion-card (click)="goToDetails(row?.name)" [ngClass]="row.type">
+          <ion-item lines="none">
+            <ion-badge>{{'# ' + (row.index | number:'3.0')}}</ion-badge>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label class="name">{{row.name}}</ion-label>
+          </ion-item>
+          <ion-card-content>
+            <ion-img [src]="row.url"></ion-img>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,101 @@
+ion-grid {
+    background-image: url(/assets/images/subtract.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+ion-item {
+    --background: transparent;
+}
+
+
+.avatar {
+    width: auto;
+    height: 15vh;
+}
+
+.name {
+    text-transform: capitalize;
+    align-self: center;
+    color: #fff !important;
+    font-size: 1.5rem !important;
+    font-weight: bold;
+}
+
+ion-title {
+    font-family: 'PressStart Regular';
+    text-align: center;
+    font-size: 5vh;
+}
+
+.row {
+    border-bottom: 1px solid black;
+}
+
+.chevron {
+    color: #FB6C6C;
+    font-size: 5vh;
+}
+ 
+ion-badge {
+    background: #FFFFFF;
+    background-blend-mode: soft-light;
+    opacity: 0.4;
+    color: #000;
+    font-size: 1rem;
+}
+
+ion-card {
+    font-size: 2rem;
+    background: #D1938C;
+    border-radius: 1rem;
+
+    ion-card-content {
+        padding: 0 !important;
+    }
+}
+
+.grass {
+    background: #46D0A7;
+}
+
+.water {
+    background: #77BDFE;
+}
+
+.electricity {
+    background: #FFCE4B;
+}
+
+.fire {
+    background: #FB6C6C;
+}
+
+.bug {
+    background: #A06EB4;
+}
+
+.poison {
+    background: #FFAC4B;
+}
+
+.normal {
+    background: #D1938C;
+}
+
+.searchbar {
+    --border-radius: 1rem;
+    --background: #F5F5F5;
+    --box-shadow: 0 0 black;
+}
+
+
+.back {
+    cursor: pointer;
+
+    ion-icon {
+        font-size: 2rem;
+        color: #000;
+    }
+}
