@@ -14,13 +14,20 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row *ngIf="rows.length">
       <ion-col>
         <ion-searchbar class="searchbar" (ionChange)="updateFilter($event)" showCancelButton="never"
           placeholder="Search for a Pok&eacute;mon by name or order"></ion-searchbar>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row *ngIf="!rows.length">
+      <ion-col class="center-text ion-text-center">
+        <ion-label>
+          There are no items in your wishlist.
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="rows.length">
       <ion-col [sizeLg]=3 [sizeMd]=6 [sizeSm]=6 [sizeXs]=6 *ngFor="let row of rows">
         <ion-card (click)="goToDetails(row?.name)" [ngClass]="row.type">
           <ion-item lines="none">
