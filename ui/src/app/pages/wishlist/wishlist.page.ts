@@ -45,7 +45,6 @@ export class WishlistPage implements OnInit {
   setTypeColor(name, pokemon) {
     this.pokemonService.get(name).then(data => {
       pokemon.type = data.types[0].type.name;
-      console.log(pokemon.type)
     })
   }
 

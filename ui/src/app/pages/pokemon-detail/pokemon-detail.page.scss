@@ -89,4 +89,11 @@ ion-slides {
 
 .add {
     --background: #303943;
+    --background-activated: #303943;
+    --background-focused: #303943;
+    --background-hover: #303943;
+}
+
+.rotate {
+    transform: rotate(90deg);
 }

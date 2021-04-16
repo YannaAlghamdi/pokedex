@@ -7,6 +7,9 @@ A Pokemon directory inspired by Pokemon's Pokedex. Search a Pokemon by name to e
 - Angular 11
 - Ionic 5
 
+## Deployed Instance
+* App is deployed via Firebase. You may access it through this link: https://pokedex-85eee.web.app/
+
 ## Run the UI
 ## Getting Started
 * Before running the UI, make sure that the following tools are installed in your machine:
