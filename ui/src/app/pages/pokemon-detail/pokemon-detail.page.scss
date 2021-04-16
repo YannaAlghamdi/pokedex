@@ -8,6 +8,11 @@
     padding: 1vh;
 }
 
+ion-progress-bar {
+    height: 0.75rem;
+    border-radius: 1rem;
+}
+
 .ability-badge {
     margin-right: 1rem;
     text-transform: capitalize;
@@ -88,7 +93,8 @@ ion-slides {
 }
 
 .add {
-    --background: #303943;
+    --box-shadow: 0 0 black;
+    --background: transparent;
     --background-activated: #303943;
     --background-focused: #303943;
     --background-hover: #303943;
